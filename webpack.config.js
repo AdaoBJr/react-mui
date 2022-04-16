@@ -18,6 +18,9 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+    compress: true,
+    port: process.env.REACT_APP_PORT || 3000,
+    open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -27,12 +30,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx$/i,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
