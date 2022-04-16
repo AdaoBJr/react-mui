@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-  entry: path.resolve(__dirname, 'src', 'index.jsx'),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -34,7 +34,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/i,
+        test: /\.(j|t)sx$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -46,31 +46,7 @@ module.exports = {
         },
       },
       {
-        test: /\.js$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(
-              Boolean
-            ),
-          },
-        },
-      },
-      {
-        test: /\.ts$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(
-              Boolean
-            ),
-          },
-        },
-      },
-      {
-        test: /\.tsx$/i,
+        test: /\.(j|t)s$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
