@@ -1,21 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/system';
-import {
-  Avatar,
-  Divider,
-  Drawer,
-  Icon,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Avatar, Divider, Drawer, List, useMediaQuery, useTheme } from '@mui/material';
 
 import { ReactComponent } from '../../../typesDefault';
-import profile from '../../../assets/images/profile.jpg';
 import { useDrawerContext } from '../../../contexts';
+import profile from '../../../assets/images/profile.jpg';
+import ListItemLink from '../ListItemLink';
 
 const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
   const theme = useTheme();
@@ -58,12 +48,7 @@ const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>home</Icon>
-                </ListItemIcon>
-                <ListItemText primary="Página Inicial" />
-              </ListItemButton>
+              <ListItemLink icon="home" label="Home" to="/" />
             </List>
           </Box>
         </Box>
