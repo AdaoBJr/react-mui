@@ -9,18 +9,27 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
 
 import { ReactComponent } from '../../../typesDefault';
 import profile from '../../../assets/images/profile.jpg';
+import { useDrawerContext } from '../../../contexts';
 
 const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
   const theme = useTheme();
+  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
-      <Drawer variant="permanent">
+      <Drawer
+        open={isDrawerOpen}
+        variant={smDown ? 'temporary' : 'permanent'}
+        onClose={toggleDrawerOpen}
+      >
         <Box
           sx={{
             display: 'flex',
@@ -59,7 +68,7 @@ const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
           </Box>
         </Box>
       </Drawer>
-      <Box height="100vh" marginLeft={theme.spacing(28)}>
+      <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
         {children}
       </Box>
     </>
