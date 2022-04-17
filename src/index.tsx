@@ -14,11 +14,11 @@ root.render(
   <React.StrictMode>
     <AppThemeProvider>
       <DrawerProvider>
-        <SideNavigation>
-          <Router>
+        <Router>
+          <SideNavigation>
             <App />
-          </Router>
-        </SideNavigation>
+          </SideNavigation>
+        </Router>
       </DrawerProvider>
     </AppThemeProvider>
   </React.StrictMode>
