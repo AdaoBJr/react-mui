@@ -9,7 +9,7 @@ export const Dashboard: React.FC = () => {
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
-    <LayoutBase title="Tela Principal">
+    <LayoutBase title="Tela Principal" toolBar={<h3>Barra de Ferramentas</h3>}>
       <h1>Dashboard</h1>
       <Button variant="contained" color="primary" onClick={toggleTheme}>
         Switch Theme

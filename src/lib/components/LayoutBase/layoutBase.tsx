@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react';
 import {
   Box,
   Icon,
@@ -6,19 +7,22 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import React from 'react';
+
 import { useDrawerContext } from '../../../contexts';
 import { ReactComponent } from '../../../typesDefault';
 
 interface ILayoutBase extends ReactComponent {
   title: string;
+  toolBar?: ReactNode;
 }
 
 export const LayoutBase: React.FC<ILayoutBase> = (props) => {
-  const { title, children } = props;
+  const { title, toolBar, children } = props;
 
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
@@ -34,7 +38,7 @@ export const LayoutBase: React.FC<ILayoutBase> = (props) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          height: theme.spacing(12),
+          height: theme.spacing(smDown ? 6 : mdDown ? 8 : 12),
           gap: 1,
         }}
       >
@@ -43,10 +47,21 @@ export const LayoutBase: React.FC<ILayoutBase> = (props) => {
             <Icon>menu</Icon>
           </IconButton>
         )}
-        <Typography variant="h5">{title}</Typography>
+        <Typography
+          variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
+          sx={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipses',
+          }}
+        >
+          {title}
+        </Typography>
       </Box>
-      <Box>Barra de ferramentas</Box>
-      <Box>{children}</Box>
+      {toolBar && <Box>{toolBar}</Box>}
+      <Box flex={1} overflow="auto">
+        {children}
+      </Box>
     </Box>
   );
 };
