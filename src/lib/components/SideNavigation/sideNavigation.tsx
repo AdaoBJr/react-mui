@@ -5,9 +5,9 @@ import { Avatar, Divider, Drawer, List, useMediaQuery, useTheme } from '@mui/mat
 import { ReactComponent } from '../../../typesDefault';
 import { useDrawerContext } from '../../../contexts';
 import profile from '../../../assets/images/profile.jpg';
-import ListItemLink from '../ListItemLink';
+import { ListItemLink } from '../ListItemLink';
 
-const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
+export const SideNavigation: React.FC<ReactComponent> = ({ children }) => {
   const theme = useTheme();
   const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
 
@@ -59,5 +59,3 @@ const sideNavigation: React.FC<ReactComponent> = ({ children }) => {
     </>
   );
 };
-
-export default sideNavigation;

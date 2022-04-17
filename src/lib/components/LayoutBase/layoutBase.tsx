@@ -1,8 +1,9 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { ReactComponent } from '../../../typesDefault';
 
-const layoutBase: React.FC = () => {
-  return <Box>Teste</Box>;
+interface ILayoutBase extends ReactComponent {}
+
+export const LayoutBase: React.FC<ILayoutBase> = ({ children }) => {
+  return <Box>{children}</Box>;
 };
-
-export default layoutBase;

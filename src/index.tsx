@@ -5,7 +5,7 @@ import './index.css';
 
 import App from './App';
 import { AppThemeProvider, DrawerProvider } from './contexts';
-import SideNavigation from './lib/components/SideNavigation';
+import { SideNavigation } from './lib/components';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);

@@ -10,7 +10,7 @@ interface IListItemLinkProps extends ReactComponent {
   onClick?: () => void;
 }
 
-const listItemLink: React.FC<IListItemLinkProps> = (props) => {
+export const ListItemLink: React.FC<IListItemLinkProps> = (props) => {
   const { to, icon, label, onClick } = props;
   const navigate = useNavigate();
 
@@ -28,5 +28,3 @@ const listItemLink: React.FC<IListItemLinkProps> = (props) => {
     </ListItemButton>
   );
 };
-
-export default listItemLink;

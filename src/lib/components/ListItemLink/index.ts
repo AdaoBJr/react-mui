@@ -1,1 +1,1 @@
-export { default } from './listItemLink';
+export * from './ListItemLink';

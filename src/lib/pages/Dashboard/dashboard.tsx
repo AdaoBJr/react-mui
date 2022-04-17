@@ -1,7 +1,6 @@
 import React from 'react';
+import { LayoutBase } from '../../components';
 
-const dashboard: React.FC = () => {
-  return <div>dashboard</div>;
+export const Dashboard: React.FC = () => {
+  return <LayoutBase>Dashboard</LayoutBase>;
 };
-
-export default dashboard;
