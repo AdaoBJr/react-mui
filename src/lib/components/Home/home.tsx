@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import styles from './home.css';
+import { Button } from '@mui/material';
+import { useAppThemeContext, useDrawerContext } from '../../../contexts';
 
-const home = () => {
-  const [increment, setIncrement] = useState(0);
+const home: React.FC = () => {
+  const { toggleTheme } = useAppThemeContext();
+  const { toggleDrawerOpen } = useDrawerContext();
   return (
     <>
-      {increment}
-      <button
-        type="button"
-        className={styles.root}
-        onClick={() => setIncrement(increment + 1)}
-      >
-        Increment
-      </button>
+      <Button variant="contained" color="primary" onClick={toggleTheme}>
+        Switch Theme
+      </Button>
+      <Button variant="contained" color="secondary" onClick={toggleDrawerOpen}>
+        Open Menu
+      </Button>
     </>
   );
 };
