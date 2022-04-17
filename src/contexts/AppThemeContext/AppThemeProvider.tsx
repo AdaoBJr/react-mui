@@ -1,14 +1,12 @@
-import { useCallback, useState, ReactNode, useMemo } from 'react';
+import { useCallback, useState, useMemo } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { LightTheme, DarkTheme } from '../../themes';
 import { Box } from '@mui/system';
+
 import AppThemeStore from './AppThemeStore';
+import { LightTheme, DarkTheme } from '../../themes';
+import { ReactComponent } from '../../typesDefault';
 
-interface IAppThemeProvider {
-  children: ReactNode;
-}
-
-const AppThemeProvider: React.FC<IAppThemeProvider> = ({ children }) => {
+const AppThemeProvider: React.FC<ReactComponent> = ({ children }) => {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = useCallback(
