@@ -12,10 +12,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <AppThemeProvider>
-      <Router>
-        <SideNavigation />
-        <App />
-      </Router>
+      <SideNavigation>
+        <Router>
+          <App />
+        </Router>
+      </SideNavigation>
     </AppThemeProvider>
   </React.StrictMode>
 );
