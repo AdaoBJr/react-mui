@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
@@ -22,7 +23,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: process.env.REACT_APP_PORT || 3000,
-    open: true,
+    open: false,
     hot: true,
   },
   plugins: [
@@ -30,6 +31,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
       favicon: path.resolve(__dirname, 'public', 'favicon.png'),
+    }),
+    new webpack.DefinePlugin({
+      process: { env: {} },
     }),
   ].filter(Boolean),
   module: {
