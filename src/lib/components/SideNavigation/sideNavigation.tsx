@@ -1,9 +1,20 @@
 import React from 'react';
 import { Box } from '@mui/system';
-import { Avatar, Divider, Drawer, List, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Avatar,
+  Divider,
+  Drawer,
+  Icon,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
 import { ReactComponent } from '../../../typesDefault';
-import { useDrawerContext } from '../../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../../contexts';
 import profile from '../../../assets/images/profile.jpg';
 import { ListItemLink } from '../ListItemLink';
 
@@ -12,6 +23,7 @@ export const SideNavigation: React.FC<ReactComponent> = ({ children }) => {
   const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
 
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <>
@@ -52,6 +64,12 @@ export const SideNavigation: React.FC<ReactComponent> = ({ children }) => {
             </List>
           </Box>
         </Box>
+        <ListItemButton onClick={toggleTheme}>
+          <ListItemIcon>
+            <Icon>dark_mode</Icon>
+          </ListItemIcon>
+          <ListItemText primary="Alternar tema" />
+        </ListItemButton>
       </Drawer>
       <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
         {children}
