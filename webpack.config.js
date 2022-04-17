@@ -77,6 +77,11 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpg|jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/i,
+        exclude: /node_modules/,
+        use: { loader: 'file-loader' },
+      },
     ],
   },
 };
