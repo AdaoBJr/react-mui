@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Paper, Skeleton, useTheme } from '@mui/material';
+import { Box, Button, Icon, Paper, Skeleton, Typography, useTheme } from '@mui/material';
 
 interface IToolBarDetailsProps {
   onValueChange?: (text: string) => void;
@@ -61,7 +61,12 @@ export const ToolBarDetails: React.FC<IToolBarDetailsProps> = (props) => {
           onClick={onClickSaveButton}
           startIcon={<Icon>save</Icon>}
         >
-          Salvar
+          <Typography
+            variant="button"
+            sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
+          >
+            Salvar
+          </Typography>
         </Button>
       )}
       {showSaveButtonLoading && <Skeleton width={110} height={60} />}
@@ -74,7 +79,12 @@ export const ToolBarDetails: React.FC<IToolBarDetailsProps> = (props) => {
           onClick={onClickSaveBackButton}
           startIcon={<Icon>save</Icon>}
         >
-          Salvar e voltar
+          <Typography
+            variant="button"
+            sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
+          >
+            Salvar e voltar
+          </Typography>
         </Button>
       )}
       {showSaveBackButtonLoading && <Skeleton width={160} height={60} />}
@@ -87,7 +97,12 @@ export const ToolBarDetails: React.FC<IToolBarDetailsProps> = (props) => {
           onClick={onClickDeleteButton}
           startIcon={<Icon>delete</Icon>}
         >
-          Apagar
+          <Typography
+            variant="button"
+            sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
+          >
+            Apagar
+          </Typography>
         </Button>
       )}
       {showDeleteButtonLoading && <Skeleton width={110} height={60} />}
@@ -100,7 +115,12 @@ export const ToolBarDetails: React.FC<IToolBarDetailsProps> = (props) => {
           onClick={onClickNewButton}
           startIcon={<Icon>add</Icon>}
         >
-          {textNewButton}
+          <Typography
+            variant="button"
+            sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
+          >
+            {textNewButton}
+          </Typography>
         </Button>
       )}
       {showNewButtonLoading && <Skeleton width={110} height={60} />}
@@ -113,7 +133,12 @@ export const ToolBarDetails: React.FC<IToolBarDetailsProps> = (props) => {
           onClick={onClickBackButton}
           startIcon={<Icon>arrow_back</Icon>}
         >
-          Voltar
+          <Typography
+            variant="button"
+            sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
+          >
+            Voltar
+          </Typography>
         </Button>
       )}
       {showBackButtonLoading && <Skeleton width={110} height={60} />}
